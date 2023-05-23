@@ -1,3 +1,4 @@
+mod command;
 mod shell;
 
 fn main() {
