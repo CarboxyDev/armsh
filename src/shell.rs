@@ -32,6 +32,8 @@ pub fn shell_input() {
         .expect("Error: Failed to parse the input");
 
     let command = *(input.split(" ").collect::<Vec<_>>().get(0).unwrap_or(&""));
+    let mut command_options = input.split(" ").collect::<Vec<_>>();
+    command_options.remove(0);
 
     match command {
         "clear" => basic::clear(),
@@ -39,6 +41,7 @@ pub fn shell_input() {
         "exit" => basic::exit(),
         "quit" => basic::exit(),
         "ls" => ls::ls(),
+        "cd" => cd::cd(command_options),
         _ => {
             // TODO: Incorporate into some sort of Error handling system. Kind of like error::unknown_command()
             println!("armsh: command not found: {}", command);
