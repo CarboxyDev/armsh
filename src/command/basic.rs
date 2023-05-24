@@ -13,3 +13,11 @@ pub fn help() {
 pub fn exit() {
     std::process::exit(0x0100);
 }
+
+pub fn pwd() {
+    let current_dir = std::env::current_dir();
+    match current_dir {
+        Ok(path) => println!("{}", path.display()),
+        Err(_) => println!("Unable to fetch present working directory."),
+    }
+}

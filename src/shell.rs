@@ -40,6 +40,7 @@ pub fn shell_input() {
         "help" => basic::help(),
         "exit" => basic::exit(),
         "quit" => basic::exit(),
+        "pwd" => basic::pwd(),
         "ls" => ls::ls(),
         "cd" => cd::cd(command_options),
         _ => {
