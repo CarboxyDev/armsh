@@ -31,11 +31,16 @@ pub fn shell_input() {
         .strip_suffix("\n")
         .expect("Error: Failed to parse the input");
 
-    match input {
+    let command = *(input.split(" ").collect::<Vec<_>>().get(0).unwrap_or(&""));
+
+    match command {
         "clear" => basic::clear(),
+        "help" => basic::help(),
+        "exit" => basic::exit(),
+        "quit" => basic::exit(),
         _ => {
             // TODO: Incorporate into some sort of Error handling system. Kind of like error::unknown_command()
-            println!("armsh: command not found");
+            println!("armsh: command not found: {}", command);
         }
     }
 }
