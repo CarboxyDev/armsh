@@ -43,6 +43,7 @@ pub fn shell_input() {
         "pwd" => basic::pwd(),
         "ls" => ls::ls(),
         "cd" => cd::cd(command_options),
+        "cat" => cat::cat(command_options),
         _ => {
             // TODO: Incorporate into some sort of Error handling system. Kind of like error::unknown_command()
             println!("armsh: command not found: {}", command);
