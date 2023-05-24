@@ -38,6 +38,7 @@ pub fn shell_input() {
         "help" => basic::help(),
         "exit" => basic::exit(),
         "quit" => basic::exit(),
+        "ls" => ls::ls(),
         _ => {
             // TODO: Incorporate into some sort of Error handling system. Kind of like error::unknown_command()
             println!("armsh: command not found: {}", command);
